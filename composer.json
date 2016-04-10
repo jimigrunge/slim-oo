@@ -1,14 +1,14 @@
 {
-    "name": "slim/slim-skeleton",
+    "name": "jimigrunge/slim-oo",
     "description": "A Slim Framework skeleton application for rapid development",
-    "keywords": ["microframework","rest","router", "psr7"],
-    "homepage": "http://github.com/slimphp/Slim-Skeleton",
+    "keywords": ["microframework","rest","router", "psr7", "tutorial", "oo"],
+    "homepage": "http://github.com/jimigrunge/slim-oo",
     "license": "MIT",
     "authors": [
         {
-            "name": "Josh Lockhart",
-            "email": "info@joshlockhart.com",
-            "homepage": "http://www.joshlockhart.com/"
+            "name": "James Grundner",
+            "email": "James@jgrundner.com",
+            "homepage": "http://jgrundner.com/"
         }
     ],
     "require": {
