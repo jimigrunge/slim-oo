@@ -5,6 +5,7 @@ use Slim\App;
 use App\Loader\ServiceLoader;
 use App\Loader\RouteLoader;
 use App\Loader\MiddlewareLoader;
+use Symfony\Component\Finder\Finder;
 
 /**
  * {@inheritDoc}
@@ -17,26 +18,15 @@ class Application extends App
     {
         parent::__construct($container);
         $this->loadServices();
-        $this->loadRoutes();
-        $this->loadMiddleware();
     }
 
     private function loadServices()
     {
-        $serviceLoader = new ServiceLoader();
-        $serviceLoader->loadServices($this);
-    }
-
-    private function loadRoutes()
-    {
-        $routeLoader = new RouteLoader();
-        $routeLoader->loadRoutes($this);
-    }
-
-    private function loadMiddleware()
-    {
-        $middlewareLoader = new MiddlewareLoader();
-        $middlewareLoader->loadMiddlewares($this);
+        $serviceLoader = new ServiceLoader(new Finder);
+        $serviceLoader->loadServices(
+            $this,
+            $this->getContainer()->get("settings")["service_directories"]
+        );
     }
 
     /**
