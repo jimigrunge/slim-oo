@@ -1,10 +1,12 @@
 <?php
 return [
     'settings' => [
-        'displayErrorDetails'   => true, // set to false in production
-        'service_config_dir'    => APP_ROOT.'/configuration/services/',
-        'route_config_dir'      => APP_ROOT.'/configuration/routes/',
-        'middleware_config_dir' => APP_ROOT.'/configuration/middleware/',  
+        'displayErrorDetails' => true, // set to false in production
+        'service_directories' => [
+            'services'    => APP_ROOT.'/configuration/services/',
+            'middlewares' => APP_ROOT.'/configuration/middleware/',
+            'routes'      => APP_ROOT.'/configuration/routes/',
+        ], 
 
         // Renderer settings
         'renderer' => [

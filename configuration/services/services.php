@@ -1,6 +1,7 @@
 <?php
 // DIC configuration
 
+/** @var \Interop\Container\ContainerInterface $container */
 $container = $app->getContainer();
 
 // view renderer

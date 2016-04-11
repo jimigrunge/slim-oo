@@ -1,14 +1,20 @@
 <?php
 namespace App\Loader;
 
-use App\Application;
+use App\Application as Application;
+use Symfony\Component\Finder\Finder;
 
 class ServiceLoader
 {
+    /** @var \Symfony\Component\Finder\Finder $finder */
+    private $finder;
+
     /**
      * ServiceLoader constructor.
      */
-    public function __construct(){}
+    public function __construct(Finder $finder){
+        $this->finder = $finder;
+    }
 
     /**
      * Load all service definitions in the config services directory
@@ -16,14 +22,11 @@ class ServiceLoader
      * @param Application $app
      * @return Application
      */
-    public function loadServices(Application $app)
+    public function loadServices(Application $app, $directories)
     {
-        $directory = $app->getContainer()["settings"]["service_config_dir"];
-        foreach (array_diff(scandir($directory), ['..', '.']) as $filename) {
-            $path = $directory . '/' . $filename;
-            if (!is_dir($path)){
-                require $path;
-            }
+        $this->finder->files()->name('*.php')->depth(0)->in($directories);
+        foreach ($this->finder as $file) {
+            require $file->getRealpath();
         }
         return $app;
     }
