@@ -28,10 +28,10 @@
         <h1>Slim</h1>
         <div>a microframework for PHP</div>
 
-        <?php if (isset($name)) : ?>
-            <h2>Hello <?= htmlspecialchars($name); ?>!</h2>
-        <?php else: ?>
+        {% if name %}
+            <h2>Hello {{ name }}!</h2>
+        {% else %}
             <p>Try <a href="/SlimFramework">/SlimFramework</a>
-        <?php endif; ?>
+        {% endif %}
     </body>
 </html>
