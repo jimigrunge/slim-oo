@@ -1,12 +1,14 @@
 <?php
 return [
     'settings' => [
-        'displayErrorDetails' => getenv('DEBUG_DETAIL'), // set to false in production
+        'displayErrorDetails' => ('true' === getenv('DEBUG_DETAIL')), // set to false in production
+        'debug'               => ('true' === getenv('DEBUG_DETAIL')),
+        'whoops.editor'       => 'phpstorm',
         'service_directories' => [
             'services'    => APP_ROOT.'/configuration/services/',
             'middlewares' => APP_ROOT.'/configuration/middleware/',
             'routes'      => APP_ROOT.'/configuration/routes/',
-        ], 
+        ],
 
         // Renderer settings
         'renderer' => [
