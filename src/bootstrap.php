@@ -6,7 +6,7 @@ if (!defined('APP_ROOT')) {
 }
 
 $loader = require_once APP_ROOT.'/vendor/autoload.php';
-$loader->setPsr4('App\\', APP_ROOT.'src/App');
+$loader->setPsr4('App\\', APP_ROOT.'/src/App');
 
 $settings = require APP_ROOT.'/configuration/settings.php';
 
