@@ -1,7 +1,7 @@
 <?php
 return [
     'settings' => [
-        'displayErrorDetails' => getenv('DEBUG_DETAIL'), // set to false in production
+        'displayErrorDetails' => ('true' === getenv('DEBUG_DETAIL')), // set to false in production
         'service_directories' => [
             'services'    => APP_ROOT.'/configuration/services/',
             'middlewares' => APP_ROOT.'/configuration/middleware/',
